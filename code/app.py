@@ -3,7 +3,7 @@ from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity
-
+from user import UserRegister
 
 # Creates Flask app
 app = Flask(__name__)
@@ -67,5 +67,6 @@ class ItemList(Resource):
 # Adss resource and determines how it's accesed
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
+api.add_resource(UserRegister, '/register')
 
 app.run(debug=True)
